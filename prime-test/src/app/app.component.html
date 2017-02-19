@@ -1,0 +1,16 @@
+<button pButton type="button" label="Click" (click)="load()"></button>
+
+<h3 class="first">Basic</h3>
+<p-dataTable [value]="cars">
+  <p-column *ngFor="let col of cols" [field]="col.field" [header]="col.header" [sortable]="!isInDetail(col.field)">
+    <template pTemplate="header">
+      <span>
+        <button type="button" pButton icon="fa fa-list" (click)="toggleDetail(col.field)"></button>
+      </span>
+      <span>{{col.header}}</span>
+      <div *ngIf="isInDetail(col.field)">{{col.field}}</div>
+    </template>
+  </p-column>
+</p-dataTable>
+
+<p-tree [value]="tree"></p-tree>
